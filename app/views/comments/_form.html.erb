@@ -1,0 +1,17 @@
+<h4>Add Comments</h4>
+    <div>
+        <%= form_with model: [ article, comments.build ] do |form| %>
+            <%= form.label :commenter %>
+            <%= form.text_field :commenter %><br>
+
+            <%= form.label :body %>
+            <%= form.text_field :body %><br>
+
+            <%= form.label :status %>
+            <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+
+            <div>
+                <%= form.submit %>
+            </div>
+        <% end %>
+    </div>
