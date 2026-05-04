@@ -4,10 +4,8 @@
     <div>
         <% comments.each do |comment| %>
         <div>
-            <h6> Commented By: </h6>
-            <%= comment.commenter %>
+            <strong><%= comment.commenter&.capitalize %>:</strong>
 
-            <h6>Comment</h6>
             <%= comment.body %>
 
             <%= link_to "Delete", [comment.article, comment],

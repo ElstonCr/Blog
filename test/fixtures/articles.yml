@@ -9,3 +9,18 @@ two:
   title: MyString
   body: MyText
   status: private
+
+three:
+  title: MyString
+  body: MyText for 3rd article
+  status: public
+
+four:
+  title: MyString
+  body: MyText for 4th article
+  status: archived
+
+five:
+  title: MyString
+  body: MyText for 5th article
+  status: archived

@@ -11,3 +11,21 @@ two:
   body: MyText
   article: two
   status: private
+
+three:
+  commenter: MyString
+  body: MyText
+  article: one
+  status: public
+
+four:
+  commenter: MyString
+  body: MyText
+  article: one
+  status: archived
+
+five:
+  commenter: MyString
+  body: MyText
+  article: two
+  status: public
