@@ -1,5 +1,7 @@
 # Blog
 
+![CI Status](https://github.com/ElstonCr/Blog/actions/workflows/ci.yml/badge.svg)
+
 A Rails 8 blog application with articles and comments, featuring status-based visibility controls and HTTP Basic Authentication.
 
 ## Features
