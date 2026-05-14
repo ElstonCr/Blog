@@ -25,6 +25,16 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "new requires authentication" do
+    get new_article_url
+    assert_response :unauthorized
+  end
+
+  test "new renders form when authenticated" do
+    get new_article_url, headers: @auth_header
+    assert_response :success
+  end
+
   test "should create article" do
     article_params = { article: { title: "This is a title", body: "This is a body", status: "public" } }
 
@@ -33,6 +43,16 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_response :redirect
+  end
+
+  test "edit requires authentication" do
+    get edit_article_url(@article_one)
+    assert_response :unauthorized
+  end
+
+  test "edit renders form when authenticated" do
+    get edit_article_url(@article_one), headers: @auth_header
+    assert_response :success
   end
 
   test "should update article" do
