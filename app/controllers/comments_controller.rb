@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
 
   private
     def comment_params
-      params.require(:comment).permit(:commenter, :body, :status)
+      params.expect(comment: [ :commenter, :body, :status ])
     end
 
     def load_article
