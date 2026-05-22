@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_04_29_010615) do
+ActiveRecord::Schema[8.0].define(version: 2026_05_17_113010) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -29,6 +29,10 @@ ActiveRecord::Schema[8.0].define(version: 2026_04_29_010615) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status", default: "public", null: false
+    t.string "moderation_status"
+    t.text "moderation_reason"
+    t.float "moderation_score"
+    t.datetime "moderated_at"
     t.index ["article_id"], name: "index_comments_on_article_id"
   end
 

@@ -5,6 +5,8 @@ class CommentsController < ApplicationController
   def create
     @comment = @article.comments.build(comment_params)
 
+    @comment.moderate!
+
     if @comment.save
       redirect_to article_path(@article)
     else
