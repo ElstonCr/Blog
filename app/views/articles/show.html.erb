@@ -12,4 +12,4 @@
     %>
 </div><br>
 
-<%= render partial: "comments/comments", locals: { article: @article, comments: @article.comments.public_comments } %>
+<%= render partial: "comments/comments", locals: { article: @article, comments: @article.comments.visible_comments } %>
