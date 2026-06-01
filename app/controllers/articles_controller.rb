@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, except: [ :index, :show ]
   before_action :load_article, only: [ :show, :edit, :update, :destroy ]
-  http_basic_authenticate_with name: ENV["BLOG_ADMIN_NAME"], password: ENV["BLOG_ADMIN_PASSWORD"], except: [ :index, :show ]
+  before_action :require_admin, except: [ :index, :show ]
 
   def index
     @articles = Article.publicly_visible.order_by_created_at
