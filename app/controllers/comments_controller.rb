@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :load_article
-  http_basic_authenticate_with name: ENV["BLOG_ADMIN_NAME"], password: ENV["BLOG_ADMIN_PASSWORD"], only: [ :create, :destroy ]
+  before_action :require_admin, only: [ :destroy ]
 
   def create
     @comment = @article.comments.build(comment_params)
