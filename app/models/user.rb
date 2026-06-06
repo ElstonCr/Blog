@@ -7,6 +7,8 @@ class User < ApplicationRecord
   # Roles
   ROLES = %w[admin author reader].freeze
 
+  validates :username, presence: true, uniqueness: true
+  validates :email, presence: true
   validates :role, inclusion: { in: ROLES }
 
   def admin?
