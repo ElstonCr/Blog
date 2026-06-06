@@ -8,11 +8,12 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-# Create admin user
-admin = User.find_or_create_by!(email: ENV["ADMIN_EMAIL"]) do |user|
-  user.password = ENV["ADMIN_PASSWORD"]
-  user.password_confirmation = ENV["ADMIN_PASSWORD"]
-  user.role = "admin"
-end
+# Create or update admin user
+admin = User.find_or_initialize_by(email: ENV["ADMIN_EMAIL"])
+admin.password = ENV["ADMIN_PASSWORD"]
+admin.password_confirmation = ENV["ADMIN_PASSWORD"]
+admin.username = ENV["ADMIN_NAME"]
+admin.role = "admin"
+admin.save!
 
-puts "Admin user created: #{admin.email}"
+puts "Admin user created/updated: #{admin.email} (#{admin.username})"

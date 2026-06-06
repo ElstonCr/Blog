@@ -7,7 +7,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "should validate role inclusion" do
-    user = User.new(email: "test@example.com", password: "password123", role: "invalid_role")
+    user = User.new(email: "test@example.com", username: "test_user", password: "password123", role: "invalid_role")
     assert_not user.valid?
     assert_includes user.errors[:role], "is not included in the list"
   end

@@ -2,15 +2,18 @@
 
 admin:
   email: admin@test.com
+  username: admin_user
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password123') %>
   role: admin
 
 author:
   email: author@test.com
+  username: author_user
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password123') %>
   role: author
 
 reader:
   email: reader@test.com
+  username: reader_user
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password123') %>
   role: reader
